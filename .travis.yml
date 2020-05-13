@@ -3,12 +3,14 @@ node_js: 12
 cache:
   directories:
     - node_modules
-jobs:
-  include:
-    - stage: build project
-      script:
-        - npm run build
+    
+script:
+  - npm run test
+  - npm run test:coverage
+  - npm run build
 
-    - stage: unit tests
-      script:
-        - npm run test
+deploy:
+  provider: heroku
+    app: doodoo-frontend-master
+    api_key:
+      secure: S0wqKGBXXfAvVOEeXBBevJAYTLKp3eMgf+Vm2KBbgAyrffSqEZ7qNAWNhS4UI2mti4Ll77x6hMHqssiE/DdCuSMnszcR/JYxuwOPVHBfCJx/cdcrk5aKwnvBj9GIwbW1/h4vylXfGFuuApDSOJ/tXR9ZP4JJ2WygVvhpDf9lHZ4hHmA8sDcZWCz5EWJfA38jhz1xMZheQ8uGhQkqTjEzdQ/XXYva4p6/622fIhV9k339FKe9yOp1BFT+0EVS16rSDvz6Uya2eiDtKPEOJhAN1Kk1q5Xht2s2QfAxOKeV6nIafSrA1rLvFSqyMN0elvLZ190DBkpgwwO2SDUzy0AuOj7u2D2LYni6cUnKcrKaSF667jtpuDIWRqAJ5ogx/Ve3dbddchVLyECP0lhpCkXESfyiiUyPfrXrMhQ0srJUM90DThB5HxAG/QVWqQBLGmxF+fcxEXC0fbEx4HaQxO15e/0Z9nFHonPHMuFgwnXWQ/edcSvS8Nzs9gqrdsR+KS2zzAyhN4utx83Yi5iUDjjaNxiM15QeiApYsiV9XiHX9nmT65C+CADPydEYBpv7DH6Ij0YVubRsCnyp7VjKU904yE4HSu0S+1XEG808C+Vte1/XUIz5XKY09qHDzbYiFuGqrheqNciOGWILEic46+3inurB32VS/s5ta19ZlKuclUo=
