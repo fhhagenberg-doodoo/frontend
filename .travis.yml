@@ -1,0 +1,14 @@
+language: node_js
+node_js: 12
+cache:
+  directories:
+    - node_modules
+jobs:
+  include:
+    - stage: build project
+      script:
+        - npm run build
+
+    - stage: unit tests
+      script:
+        - npm run test
