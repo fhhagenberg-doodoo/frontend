@@ -1,0 +1,32 @@
+.flex-gap-1 > :not(:first-child) {
+  margin-top: 0.25rem;
+}
+
+.flex-gap-2 > :not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.flex-gap-3 > :not(:first-child) {
+  margin-top: 0.75rem;
+}
+
+.flex-gap-4 > :not(:first-child) {
+  margin-top: 1rem;
+}
+
+.flex-gap-5 > :not(:first-child) {
+  margin-top: 1.25rem;
+}
+
+.flex-gap-6 > :not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.flex-gap-1 > :first-child,
+.flex-gap-2 > :first-child,
+.flex-gap-3 > :first-child,
+.flex-gap-4 > :first-child,
+.flex-gap-5 > :first-child,
+.flex-gap-6 > :first-child {
+  margin-top: 0px;
+}

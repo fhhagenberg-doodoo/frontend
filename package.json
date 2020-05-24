@@ -16,12 +16,13 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "watch:style": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css && react-scripts start",
+    "start": "npm run watch:style && react-scripts start",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
     "coveralls": "react-scripts test --coverage && cat ./coverage/lcov.info | coveralls",
-    "eject": "react-scripts eject"
+    "build": "npm run build:style && react-scripts build",
+    "build:style": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css --env production"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +40,9 @@
     ]
   },
   "devDependencies": {
-    "coveralls": "^3.1.0"
+    "autoprefixer": "^9.8.0",
+    "coveralls": "^3.1.0",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.4.6"
   }
 }
