@@ -18,8 +18,8 @@
   "scripts": {
     "watch:style": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css && react-scripts start",
     "start": "npm run watch:style && react-scripts start",
-    "test": "react-scripts test --passWithNoTests",
-    "test:coverage": "react-scripts test --coverage --passWithNoTests",
+    "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage",
     "coveralls": "react-scripts test --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "npm run build:style && react-scripts build",
     "build:style": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css --env production"
