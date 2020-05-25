@@ -3,4 +3,5 @@ export interface Task {
   title: string;
   subTitle: string;
   priority: number;
+  dueDate: Date;
 }
