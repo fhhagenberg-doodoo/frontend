@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import "./assets/styles/main.css";
 import { DooDooBody } from "./components/DooDooBody";

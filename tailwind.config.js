@@ -11,6 +11,7 @@ module.exports = {
       },
     },
     screens: {
+      xs: "320px",
       sm: "640px",
       md: "768px",
       lg: "1024px",
@@ -266,6 +267,8 @@ module.exports = {
       ],
     },
     fontSize: {
+      "3xs": "0.5rem",
+      "2xs": "0.625rem",
       xs: "0.75rem",
       sm: "0.875rem",
       base: "1rem",

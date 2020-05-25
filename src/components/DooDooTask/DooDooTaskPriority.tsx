@@ -9,7 +9,12 @@ export const DooDooTaskPriority: React.FC<DooDooTaskPriorityProps> = ({
   priority,
 }) => {
   const toilets = Array.from(Array(priority).keys()).map((i) => (
-    <span key={i} role="img" aria-label="Toilet per point in priority">
+    <span
+      className="text-xs md:text-base lg:text-lg"
+      key={i}
+      role="img"
+      aria-label="Toilet per point in priority"
+    >
       🚽
     </span>
   ));
