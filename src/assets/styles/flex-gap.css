@@ -40,3 +40,13 @@
 .flex-gap-15 > :first-child {
   margin-top: 0px;
 }
+
+@media screen and (min-width: 1024px) {
+  .lg\:flex-gap-15 > :not(:first-child) {
+    margin-top: 3.75rem;
+  }
+
+  .lg\:flex-gap-15 {
+    margin-top: 0px;
+  }
+}
