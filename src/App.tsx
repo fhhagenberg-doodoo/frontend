@@ -5,7 +5,7 @@ import { DooDooHeader } from "./components/DooDooHeader";
 
 const App: React.FC = () => {
   return (
-    <div className="flex flex-col py-10 bg-brown bg-opacity-75 px-5 h-screen">
+    <div className="flex flex-col py-4 lg:py-10 px-4 items-center bg-brown bg-opacity-75 h-screen">
       <DooDooHeader></DooDooHeader>
       <DooDooBody></DooDooBody>
     </div>

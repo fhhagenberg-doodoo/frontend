@@ -25,7 +25,7 @@ const taskGroups: Array<TaskGroup> = [
 
 export const DooDooTaskGroupList: React.FC = () => {
   return (
-    <div className="flex flex-col flex-gap-5 flex-1 w-1/2 max-h-3/4 overflow-y-scroll">
+    <div className="flex flex-col flex-gap-5 flex-1 w-full max-h-full overflow-y-scroll">
       {taskGroups.map((taskGroup) => (
         <DooDooTaskGroup
           key={taskGroup.dueDate.toLocaleDateString()}
