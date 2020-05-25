@@ -1,6 +1,6 @@
 import React from "react";
-import "../assets/styles/flex-gap.css";
-import { Task, TaskGroup } from "../model";
+import "../../assets/styles/flex-gap.css";
+import { Task, TaskGroup } from "../../model";
 import { DooDooTaskGroup } from "./DooDooTaskGroup";
 
 const addDays = (date: Date, days: number) => {
@@ -10,8 +10,8 @@ const addDays = (date: Date, days: number) => {
 };
 
 const tasks: Array<Task> = [
-  { id: 1, title: "Text", subTitle: "More Text" },
-  { id: 2, title: "Text", subTitle: "More Text" },
+  { id: 1, title: "Text", subTitle: "More Text", priority: 3 },
+  { id: 2, title: "Text", subTitle: "More Text", priority: 5 },
 ];
 
 const taskGroups: Array<TaskGroup> = [
@@ -25,7 +25,7 @@ const taskGroups: Array<TaskGroup> = [
 
 export const DooDooTaskGroupList: React.FC = () => {
   return (
-    <div className="flex flex-col flex-gap-5 flex-1 w-full max-h-full overflow-y-scroll">
+    <div className="flex flex-col flex-gap-10 flex-1 w-full max-h-full overflow-y-scroll">
       {taskGroups.map((taskGroup) => (
         <DooDooTaskGroup
           key={taskGroup.dueDate.toLocaleDateString()}

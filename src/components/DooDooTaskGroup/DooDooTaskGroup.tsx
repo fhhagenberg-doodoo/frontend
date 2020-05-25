@@ -1,6 +1,6 @@
 import React from "react";
-import "../assets/styles/flex-gap.css";
-import { TaskGroup } from "../model";
+import "../../assets/styles/flex-gap.css";
+import { TaskGroup } from "../../model";
 import { DooDooTaskGroupHeader } from "./DooDooTaskGroupHeader";
 import { DooDooTaskList } from "./DooDooTaskList";
 

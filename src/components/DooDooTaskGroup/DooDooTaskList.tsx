@@ -1,7 +1,7 @@
 import React from "react";
-import "../assets/styles/flex-gap.css";
-import { Task } from "../model";
-import { DooDooTask } from "./DooDooTask";
+import "../../assets/styles/flex-gap.css";
+import { Task } from "../../model";
+import { DooDooTask } from "../DooDooTask/DooDooTask";
 
 interface DooDooTaskListProps {
   tasks: Task[];
