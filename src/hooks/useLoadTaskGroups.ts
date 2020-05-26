@@ -1,7 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Task, TaskGroup } from "../../model";
-import { groupBy } from "../../util/groupBy";
+import { Task, TaskGroup } from "../model";
+import { groupBy } from "../util/groupBy";
 
 const addDays = (date: Date, days: number) => {
   const newDate = new Date(date);
@@ -68,41 +67,26 @@ const mockTasks: Array<Task> = [
   },
 ];
 
-const fetchTasksMock = (): Promise<Array<Task>> => {
-  const tasks = new Promise<Task[]>((resolve) =>
-    setTimeout(() => resolve(mockTasks), 2000)
-  );
-
-  return tasks;
-};
-
-const fetchTasks = (): Promise<Array<Task>> =>
-  axios.get<Task[]>(process.env.PUBLIC_URL).then((response) => response.data);
+const fetchTasks = (): Array<Task> => mockTasks;
 
 const groupTasksByDate = (tasks: Array<Task>): Array<TaskGroup> =>
   Array.from(groupBy(tasks, (t) => t.dueDate.toDateString()).entries()).map(
     ([dueDate, tasks]) => ({ dueDate: new Date(dueDate), tasks } as TaskGroup)
   );
 
-export const useFetchTaskGroups = (): [TaskGroup[], boolean, any] => {
+export const useLoadTaskGroups = (): [TaskGroup[], boolean] => {
   const [taskGroups, setTaskGroups] = useState<TaskGroup[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setTimeout(async () => {
-      try {
-        const tasks = await fetchTasksMock();
-        const taskGroups = groupTasksByDate(tasks);
+    setTimeout(() => {
+      const tasks = fetchTasks();
+      const taskGroups = groupTasksByDate(tasks);
 
-        setTaskGroups(taskGroups);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setTaskGroups([]);
-      }
+      setTaskGroups(taskGroups);
+      setLoading(false);
     }, 2000);
   }, []);
 
-  return [taskGroups, isLoading, error];
+  return [taskGroups, isLoading];
 };
