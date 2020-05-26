@@ -24,7 +24,7 @@ export const DooDooInput: React.FC = () => {
         <FaPlus className="outline-none border-none"></FaPlus>
       </button>
       <DooDooAddDooModal
-        title={titleInput}
+        titleInput={titleInput}
         isModalOpen={isModalOpen}
         closeModal={closeModal}
       ></DooDooAddDooModal>
