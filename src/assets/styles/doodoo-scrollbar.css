@@ -1,0 +1,19 @@
+.scroll {
+  scrollbar-color: #96532e;
+  scrollbar-width: #96532e80;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.scroll::-webkit-scrollbar-track {
+  @apply bg-brown;
+  @apply bg-opacity-50;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  @apply bg-brown; /* color of the scroll thumb */
+  border-radius: 5px; /* roundness of the scroll thumb */
+  border: 0px solid transparent; /* creates padding around scroll thumb */
+}
