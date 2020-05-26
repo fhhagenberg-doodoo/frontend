@@ -1,9 +1,16 @@
 import React from "react";
 
-export const DooDooLoadingIndicator = () => {
+interface DooDooLoadingIndicatorProps {
+  error?: any;
+}
+
+export const DooDooLoadingIndicator: React.FC<DooDooLoadingIndicatorProps> = ({
+  error,
+}) => {
   return (
     <div className="flex flex-col justify-center items-center text-white text-3xl lg:text-5xl font-extrabold h-full">
-      <br></br>Loading ... 💩
+      <span>Loading ... 💩</span>
+      {error && <span className="text-sm">Operation failed.</span>}
     </div>
   );
 };
