@@ -1,10 +1,10 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { useModal } from "../../hooks";
-import { putTask } from "../../hooks/api-hooks";
+import { useConfirmModal, useModal } from "../../hooks";
+import { deleteTask, putTask } from "../../hooks/api-hooks";
 import { Task } from "../../model";
 import { tasksState } from "../../recoil/atoms";
-import { replaceItemAtIndex } from "../../util/arrayUtils";
+import { removeItemAtIndex, replaceItemAtIndex } from "../../util/arrayUtils";
 import { DooDooTaskDescription } from "./DooDooTaskDescription";
 import { DooDooTaskOptions } from "./DooDooTaskOptions";
 import { DooDooTaskPriority } from "./DooDooTaskPriority";
@@ -25,10 +25,25 @@ export const DooDooTask: React.FC<DooDooTaskProps> = ({ task: taskInput }) => {
     setTasks(updatedTasks);
   };
 
+  const removeTask = async (task: Task) => {
+    await deleteTask(task);
+
+    const indexOfTask = tasks.findIndex((t) => t.id === task.id);
+    const updatedTasks = removeItemAtIndex(tasks, indexOfTask);
+
+    setTasks(updatedTasks);
+  };
+
   const [EditModal, openEditModal] = useModal({
     task: taskInput,
     submitButtonText: "Edit Task",
     onSubmit: editTask,
+  });
+
+  const [DeleteModal, openDeleteModal] = useConfirmModal({
+    task: taskInput,
+    submitButtonText: "Delete Task",
+    onSubmit: removeTask,
   });
 
   return (
@@ -38,8 +53,12 @@ export const DooDooTask: React.FC<DooDooTaskProps> = ({ task: taskInput }) => {
         description={taskInput.description}
       ></DooDooTaskDescription>
       <DooDooTaskPriority priority={taskInput.priority}></DooDooTaskPriority>
-      <DooDooTaskOptions onEdit={openEditModal}></DooDooTaskOptions>
+      <DooDooTaskOptions
+        onEdit={openEditModal}
+        onDelete={openDeleteModal}
+      ></DooDooTaskOptions>
       <EditModal />
+      <DeleteModal />
     </div>
   );
 };
