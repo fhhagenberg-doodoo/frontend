@@ -1,15 +1,16 @@
 import dayjs from "dayjs";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Rating from "react-rating";
 import "../../assets/styles/flex-gap.css";
 import { Task } from "../../model";
 
-interface DooDooAddDooModalProps {
-  titleInput: string;
+interface DooDooModalProps {
+  task: Task;
   isModalOpen: boolean;
-  onSubmit: (task: Task) => void;
+  submitButtonText: string;
+  onSubmit: ((task: Task) => Promise<void>) | ((task: Task) => void);
   closeModal: () => void;
 }
 
@@ -26,18 +27,14 @@ const fullSymbol = (
   </span>
 );
 
-export const DooDooModal: React.FC<DooDooAddDooModalProps> = ({
-  titleInput,
+export const DooDooModal: React.FC<DooDooModalProps> = ({
+  task: taskInput,
   isModalOpen,
+  submitButtonText,
   onSubmit,
   closeModal,
 }) => {
-  const [name, setName] = useState<string>(titleInput);
-  const [description, setDescription] = useState<string>("");
-  const [dueDate, setDueDate] = useState<Date>(minDate.toDate());
-  const [priority, setPriority] = useState<number>(3);
-
-  useEffect(() => setName(titleInput), [titleInput]);
+  const [task, setTask] = useState<Task>(taskInput);
 
   const [isValidated, setValidated] = useState(false);
 
@@ -50,22 +47,12 @@ export const DooDooModal: React.FC<DooDooAddDooModalProps> = ({
     return isFormValid;
   };
 
-  const buildTask = (): Task =>
-    ({
-      name,
-      description,
-      dueDate,
-      priority,
-    } as Task);
-
-  const submitModal = (event: React.FormEvent<HTMLFormElement>) => {
+  const submitModal = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.stopPropagation();
 
     if (isFormValid(event)) {
-      const task = buildTask();
-
-      onSubmit(task);
+      await onSubmit(task);
       closeModal();
     }
   };
@@ -87,8 +74,8 @@ export const DooDooModal: React.FC<DooDooAddDooModalProps> = ({
               size="lg"
               type="text"
               placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={task.name}
+              onChange={(e) => setTask({ ...task, name: e.target.value })}
               required
             />
             <Form.Control.Feedback type="invalid">
@@ -101,8 +88,10 @@ export const DooDooModal: React.FC<DooDooAddDooModalProps> = ({
               size="sm"
               type="text"
               placeholder="Subtitle"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={task.description}
+              onChange={(e) =>
+                setTask({ ...task, description: e.target.value })
+              }
               required={false}
             />
           </Form.Group>
@@ -111,8 +100,10 @@ export const DooDooModal: React.FC<DooDooAddDooModalProps> = ({
             <Form.Label>Due Date</Form.Label>
             <Form.Control
               type="date"
-              value={dayjs(dueDate).format("YYYY-MM-DD")}
-              onChange={(e) => setDueDate(new Date(e.target.value))}
+              value={dayjs(task.dueDate).format("YYYY-MM-DD")}
+              onChange={(e) =>
+                setTask({ ...task, dueDate: new Date(e.target.value) })
+              }
               min={minDate.format("YYYY-MM-DD")}
               required
             />
@@ -123,10 +114,10 @@ export const DooDooModal: React.FC<DooDooAddDooModalProps> = ({
             <div className="flex">
               <Rating
                 className="border-none w-1/2"
-                initialRating={priority}
+                initialRating={task.priority}
                 emptySymbol={emptySymbol}
                 fullSymbol={fullSymbol}
-                onChange={(priority) => setPriority(priority)}
+                onChange={(priority) => setTask({ ...task, priority })}
               />
             </div>
           </Form.Group>
@@ -142,7 +133,7 @@ export const DooDooModal: React.FC<DooDooAddDooModalProps> = ({
               type="submit"
               className="flex-1 bg-brown text-white rounded-lg p-2 ml-1"
             >
-              Add Doo
+              {submitButtonText}
             </button>
           </div>
         </Form>
