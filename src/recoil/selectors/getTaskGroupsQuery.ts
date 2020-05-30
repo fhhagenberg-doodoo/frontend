@@ -17,7 +17,6 @@ export const getTaskGroupsQuery = selector<TaskGroup[]>({
   key: GET_TASK_GROUPS,
   get: async ({ get }) => {
     const tasks = get(getTasksQuery);
-    console.log(tasks);
     const taskGroups = groupTasksByDate(tasks);
 
     return taskGroups;
