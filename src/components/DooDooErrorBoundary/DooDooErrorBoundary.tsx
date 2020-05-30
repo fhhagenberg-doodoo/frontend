@@ -27,7 +27,11 @@ export class DooDooErrorBoundary extends React.Component<
 
   render() {
     if (this.state.hasError) {
-      return <div>Error: {this.state.error?.message}</div>;
+      return (
+        <div className="flex-1 flex justify-center items-center text-white font-bold">
+          Error: {this.state.error?.message}
+        </div>
+      );
     }
 
     return this.props.children;
