@@ -11,8 +11,8 @@ export const DooDooTask: React.FC<DooDooTaskProps> = ({ task }) => {
   return (
     <div className="flex px-4 py-2 justify-end bg-white text-brown text-md lg:text-lg rounded-lg">
       <DooDooTaskDescription
-        title={task.title}
-        subTitle={task.subTitle}
+        name={task.name}
+        description={task.description}
       ></DooDooTaskDescription>
       <DooDooTaskPriority priority={task.priority}></DooDooTaskPriority>
     </div>
