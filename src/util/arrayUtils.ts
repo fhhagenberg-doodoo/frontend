@@ -3,3 +3,8 @@ export const replaceItemAtIndex = <T>(arr: T[], index: number, newValue: T) => [
   newValue,
   ...arr.slice(index + 1),
 ];
+
+export const removeItemAtIndex = <T>(arr: T[], index: number) => [
+  ...arr.slice(0, index),
+  ...arr.slice(index + 1),
+];

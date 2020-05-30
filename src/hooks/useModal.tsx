@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DooDooModal } from "../components/DooDooModal";
+import { DooDooConfirmModal, DooDooModal } from "../components/DooDooModal";
 import { Task } from "../model";
 
 type UseModalProps = {
@@ -26,6 +26,29 @@ export const useModal = ({
       onSubmit={onSubmit}
       closeModal={closeModal}
     ></DooDooModal>
+  );
+
+  return [Modal, openModal];
+};
+
+export const useConfirmModal = ({
+  task,
+  submitButtonText,
+  onSubmit,
+}: UseModalProps): [React.FC, () => void] => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
+  const Modal: React.FC = () => (
+    <DooDooConfirmModal
+      task={task}
+      submitButtonText={submitButtonText}
+      isModalOpen={isModalOpen}
+      onSubmit={onSubmit}
+      closeModal={closeModal}
+    ></DooDooConfirmModal>
   );
 
   return [Modal, openModal];
