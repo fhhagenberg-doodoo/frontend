@@ -22,7 +22,7 @@ export class DooDooErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    this.state = { hasError: true, error: error, errorInfo: errorInfo };
+    this.setState({ hasError: true, error: error, errorInfo: errorInfo });
   }
 
   render() {

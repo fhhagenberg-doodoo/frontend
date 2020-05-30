@@ -1,7 +1,7 @@
 import { selector } from "recoil";
 import { Task, TaskGroup } from "../../model";
 import { groupBy } from "../../util/groupBy";
-import { getTasksQuery } from "./getTasksQuery";
+import { tasksState } from "../atoms";
 
 const GET_TASK_GROUPS = "GetTaskGroups";
 
@@ -16,7 +16,7 @@ const groupTasksByDate = (tasks: Array<Task>): Array<TaskGroup> => {
 export const getTaskGroupsQuery = selector<TaskGroup[]>({
   key: GET_TASK_GROUPS,
   get: async ({ get }) => {
-    const tasks = get(getTasksQuery);
+    const tasks = get(tasksState);
     const taskGroups = groupTasksByDate(tasks);
 
     return taskGroups;

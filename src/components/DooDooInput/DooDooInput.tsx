@@ -1,16 +1,29 @@
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import { DooDooAddDooModal } from "../DooDooAddDooModal/DooDooAddDooModal";
+import { useRecoilState } from "recoil";
+import { postTask } from "../../hooks/useCreateTask";
+import { Task } from "../../model";
+import { tasksState } from "../../recoil/atoms";
+import { DooDooModal } from "../DooDooModal/DooDooModal";
 
 export const DooDooInput: React.FC = () => {
   const [titleInput, setTitleInput] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
 
+  const [tasks, setTasks] = useRecoilState(tasksState);
+
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  const createTask = async (task: Task) => {
+    const createdTask = await postTask(task);
+
+    setTasks([...tasks, createdTask]);
+    setTitleInput("");
+  };
+
   return (
-    <div className="self-end flex w-full px-2 py-3 bg-white text-brown rounded-lg">
+    <div className="self-end flex w-full px-2 pb-2 pt-3 bg-white text-brown rounded-lg">
       <input
         className="ml-4 pl-2 flex-1 border-b-2 border-brown"
         type="text"
@@ -23,11 +36,12 @@ export const DooDooInput: React.FC = () => {
       >
         <FaPlus className="outline-none border-none"></FaPlus>
       </button>
-      <DooDooAddDooModal
+      <DooDooModal
         titleInput={titleInput}
         isModalOpen={isModalOpen}
         closeModal={closeModal}
-      ></DooDooAddDooModal>
+        onSubmit={createTask}
+      ></DooDooModal>
     </div>
   );
 };

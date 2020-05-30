@@ -1,9 +1,9 @@
 import React from "react";
 import "../assets/styles/flex-gap.css";
 import { DooDooErrorBoundary } from "./DooDooErrorBoundary";
-import { DooDooInput } from "./DooDooInput/DooDooInput";
+import { DooDooInput } from "./DooDooInput";
 import { DooDooLoadingIndicator } from "./DooDooLoadingIndicator";
-import { DooDooTaskGroupList } from "./DooDooTaskGroup/DooDooTaskGroupList";
+import { DooDooTaskGroupList } from "./DooDooTaskGroupList";
 
 export const DooDooBody: React.FC = () => {
   return (
@@ -11,9 +11,9 @@ export const DooDooBody: React.FC = () => {
       <DooDooErrorBoundary>
         <React.Suspense fallback={<DooDooLoadingIndicator />}>
           <DooDooTaskGroupList></DooDooTaskGroupList>
+          <DooDooInput></DooDooInput>
         </React.Suspense>
       </DooDooErrorBoundary>
-      <DooDooInput></DooDooInput>
     </div>
   );
 };
