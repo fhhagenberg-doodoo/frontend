@@ -1076,6 +1076,18 @@ video {
   border-left-width: calc(0px * calc(1 - var(--divide-x-reverse)));
 }
 
+.divide-y-1 > :not(template) ~ :not(template) {
+  --divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--divide-y-reverse));
+}
+
+.divide-x-1 > :not(template) ~ :not(template) {
+  --divide-x-reverse: 0;
+  border-right-width: calc(1px * var(--divide-x-reverse));
+  border-left-width: calc(1px * calc(1 - var(--divide-x-reverse)));
+}
+
 .divide-y-2 > :not(template) ~ :not(template) {
   --divide-y-reverse: 0;
   border-top-width: calc(2px * calc(1 - var(--divide-y-reverse)));
@@ -5642,6 +5654,10 @@ video {
   border-width: 0;
 }
 
+.border-1 {
+  border-width: 1px;
+}
+
 .border-2 {
   border-width: 2px;
 }
@@ -5672,6 +5688,22 @@ video {
 
 .border-l-0 {
   border-left-width: 0;
+}
+
+.border-t-1 {
+  border-top-width: 1px;
+}
+
+.border-r-1 {
+  border-right-width: 1px;
+}
+
+.border-b-1 {
+  border-bottom-width: 1px;
+}
+
+.border-l-1 {
+  border-left-width: 1px;
 }
 
 .border-t-2 {
@@ -14916,6 +14948,18 @@ video {
     border-left-width: calc(0px * calc(1 - var(--divide-x-reverse)));
   }
 
+  .xs\:divide-y-1 > :not(template) ~ :not(template) {
+    --divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--divide-y-reverse));
+  }
+
+  .xs\:divide-x-1 > :not(template) ~ :not(template) {
+    --divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--divide-x-reverse)));
+  }
+
   .xs\:divide-y-2 > :not(template) ~ :not(template) {
     --divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--divide-y-reverse)));
@@ -19482,6 +19526,10 @@ video {
     border-width: 0;
   }
 
+  .xs\:border-1 {
+    border-width: 1px;
+  }
+
   .xs\:border-2 {
     border-width: 2px;
   }
@@ -19512,6 +19560,22 @@ video {
 
   .xs\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .xs\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .xs\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .xs\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .xs\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .xs\:border-t-2 {
@@ -28755,6 +28819,18 @@ video {
     border-left-width: calc(0px * calc(1 - var(--divide-x-reverse)));
   }
 
+  .sm\:divide-y-1 > :not(template) ~ :not(template) {
+    --divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--divide-y-reverse));
+  }
+
+  .sm\:divide-x-1 > :not(template) ~ :not(template) {
+    --divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--divide-x-reverse)));
+  }
+
   .sm\:divide-y-2 > :not(template) ~ :not(template) {
     --divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--divide-y-reverse)));
@@ -33321,6 +33397,10 @@ video {
     border-width: 0;
   }
 
+  .sm\:border-1 {
+    border-width: 1px;
+  }
+
   .sm\:border-2 {
     border-width: 2px;
   }
@@ -33351,6 +33431,22 @@ video {
 
   .sm\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .sm\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .sm\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .sm\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .sm\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .sm\:border-t-2 {
@@ -42594,6 +42690,18 @@ video {
     border-left-width: calc(0px * calc(1 - var(--divide-x-reverse)));
   }
 
+  .md\:divide-y-1 > :not(template) ~ :not(template) {
+    --divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--divide-y-reverse));
+  }
+
+  .md\:divide-x-1 > :not(template) ~ :not(template) {
+    --divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--divide-x-reverse)));
+  }
+
   .md\:divide-y-2 > :not(template) ~ :not(template) {
     --divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--divide-y-reverse)));
@@ -47160,6 +47268,10 @@ video {
     border-width: 0;
   }
 
+  .md\:border-1 {
+    border-width: 1px;
+  }
+
   .md\:border-2 {
     border-width: 2px;
   }
@@ -47190,6 +47302,22 @@ video {
 
   .md\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .md\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .md\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .md\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .md\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .md\:border-t-2 {
@@ -56433,6 +56561,18 @@ video {
     border-left-width: calc(0px * calc(1 - var(--divide-x-reverse)));
   }
 
+  .lg\:divide-y-1 > :not(template) ~ :not(template) {
+    --divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--divide-y-reverse));
+  }
+
+  .lg\:divide-x-1 > :not(template) ~ :not(template) {
+    --divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--divide-x-reverse)));
+  }
+
   .lg\:divide-y-2 > :not(template) ~ :not(template) {
     --divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--divide-y-reverse)));
@@ -60999,6 +61139,10 @@ video {
     border-width: 0;
   }
 
+  .lg\:border-1 {
+    border-width: 1px;
+  }
+
   .lg\:border-2 {
     border-width: 2px;
   }
@@ -61029,6 +61173,22 @@ video {
 
   .lg\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .lg\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .lg\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .lg\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .lg\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .lg\:border-t-2 {
@@ -70272,6 +70432,18 @@ video {
     border-left-width: calc(0px * calc(1 - var(--divide-x-reverse)));
   }
 
+  .xl\:divide-y-1 > :not(template) ~ :not(template) {
+    --divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--divide-y-reverse));
+  }
+
+  .xl\:divide-x-1 > :not(template) ~ :not(template) {
+    --divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--divide-x-reverse)));
+  }
+
   .xl\:divide-y-2 > :not(template) ~ :not(template) {
     --divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--divide-y-reverse)));
@@ -74838,6 +75010,10 @@ video {
     border-width: 0;
   }
 
+  .xl\:border-1 {
+    border-width: 1px;
+  }
+
   .xl\:border-2 {
     border-width: 2px;
   }
@@ -74868,6 +75044,22 @@ video {
 
   .xl\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .xl\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .xl\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .xl\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .xl\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .xl\:border-t-2 {
