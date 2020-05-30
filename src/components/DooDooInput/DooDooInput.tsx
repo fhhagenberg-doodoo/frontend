@@ -2,8 +2,7 @@ import dayjs from "dayjs";
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { useRecoilState } from "recoil";
-import { useModal } from "../../hooks";
-import { postTask } from "../../hooks/useCreateTask";
+import { useDooDooApi, useModal } from "../../hooks";
 import { Task } from "../../model";
 import { tasksState } from "../../recoil/atoms";
 
@@ -18,7 +17,9 @@ export const DooDooInput: React.FC = () => {
   const [task, setTask] = useState<Task>(initialTask);
   const [tasks, setTasks] = useRecoilState(tasksState);
 
-  const createTask = async () => {
+  const { postTask } = useDooDooApi();
+
+  const createTask = async (task: Task) => {
     const createdTask = await postTask(task);
 
     setTasks([...tasks, createdTask]);

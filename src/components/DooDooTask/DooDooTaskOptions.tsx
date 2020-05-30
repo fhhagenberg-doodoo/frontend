@@ -1,13 +1,19 @@
 import React from "react";
 
-type DooDooTaskOptions = {
+type DooDooTaskOptionsProps = {
   onEdit: () => void;
 };
 
-export const DooDooTaskOptions: React.FC<DooDooTaskOptions> = ({ onEdit }) => {
+export const DooDooTaskOptions: React.FC<DooDooTaskOptionsProps> = ({
+  onEdit,
+}) => {
   return (
     <div>
-      <button onClick={() => onEdit()}>🖊️</button>
+      <button onClick={() => onEdit()}>
+        <span role="img" aria-label="Pen EmojI">
+          🖊️
+        </span>
+      </button>
     </div>
   );
 };
