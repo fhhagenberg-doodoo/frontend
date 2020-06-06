@@ -9,7 +9,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "npm run lint:fix"
     ],
     "*.{json,md,scss,yaml,yml}": [
       "prettier --write"

@@ -11,7 +11,7 @@ jobs:
     - stage: 'Testing Project'
       name: 'Unit Tests'
       script:
-        - eslint src/**/*.{js,ts,tsx} --quiet
+        - npm run lint
         - npm run test
         - npm run coveralls
 
