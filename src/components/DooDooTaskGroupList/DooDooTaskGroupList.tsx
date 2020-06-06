@@ -1,8 +1,8 @@
-import React from "react";
-import { useRecoilValue } from "recoil";
-import "../../assets/styles/flex-gap.css";
-import { getTaskGroupsQuery } from "../../recoil/selectors";
-import { DooDooTaskGroup } from "./DooDooTaskGroup";
+import React from 'react';
+import { useRecoilValue } from 'recoil';
+import '../../assets/styles/flex-gap.css';
+import { getTaskGroupsQuery } from '../../recoil/selectors';
+import { DooDooTaskGroup } from './DooDooTaskGroup';
 
 export const DooDooTaskGroupList: React.FC = () => {
   const taskGroups = useRecoilValue(getTaskGroupsQuery);

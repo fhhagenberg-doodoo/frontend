@@ -1,1 +1,1 @@
-export * from "./DooDooTask";
+export * from './DooDooTask';

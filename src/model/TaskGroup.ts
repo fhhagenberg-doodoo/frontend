@@ -1,4 +1,4 @@
-import { Task } from ".";
+import { Task } from '.';
 
 export interface TaskGroup {
   dueDate: Date;

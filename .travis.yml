@@ -4,17 +4,18 @@ install:
   - npm ci
 cache:
   directories:
-    - "$HOME/.npm"
+    - '$HOME/.npm'
 
 jobs:
   include:
-    - stage: "Testing Project"
-      name: "Unit Tests"
+    - stage: 'Testing Project'
+      name: 'Unit Tests'
       script:
+        - npm run lint
         - npm run test
         - npm run coveralls
 
-    - stage: "Deploy to Heroku"
+    - stage: 'Deploy to Heroku'
       deploy:
         provider: heroku
         app:

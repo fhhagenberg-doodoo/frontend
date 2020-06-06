@@ -1,10 +1,10 @@
-import axios from "axios";
-import { selector } from "recoil";
-import { TaskDto } from "../../dtos";
-import { Task } from "../../model";
-import { tasksState } from "../atoms";
+import axios from 'axios';
+import { selector } from 'recoil';
+import { TaskDto } from '../../dtos';
+import { Task } from '../../model';
+import { tasksState } from '../atoms';
 
-const GET_TASKS_QUERY_KEY = "getTasksQuery";
+const GET_TASKS_QUERY_KEY = 'getTasksQuery';
 
 const buildTask = (dto: TaskDto): Task =>
   ({

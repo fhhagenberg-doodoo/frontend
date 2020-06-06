@@ -1,12 +1,12 @@
-import React from "react";
-import "../../assets/styles/flex-gap.css";
-import { TaskGroup } from "../../model";
-import { DooDooTaskGroupHeader } from "./DooDooTaskGroupHeader";
-import { DooDooTaskList } from "./DooDooTaskList";
+import React from 'react';
+import '../../assets/styles/flex-gap.css';
+import { TaskGroup } from '../../model';
+import { DooDooTaskGroupHeader } from './DooDooTaskGroupHeader';
+import { DooDooTaskList } from './DooDooTaskList';
 
-interface DooDooTaskGroupProps {
+type DooDooTaskGroupProps = {
   taskGroup: TaskGroup;
-}
+};
 
 export const DooDooTaskGroup: React.FC<DooDooTaskGroupProps> = ({
   taskGroup,

@@ -1,5 +1,5 @@
-import React from "react";
-import "../../assets/styles/flex-gap.css";
+import React from 'react';
+import '../../assets/styles/flex-gap.css';
 
 interface DooDooTaskPriorityProps {
   priority: number;

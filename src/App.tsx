@@ -1,8 +1,8 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
-import "./assets/styles/main.css";
-import { DooDooBody } from "./components/DooDooBody";
-import { DooDooHeader } from "./components/DooDooHeader";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import './assets/styles/main.css';
+import { DooDooBody } from './components/DooDooBody';
+import { DooDooHeader } from './components/DooDooHeader';
 
 const App: React.FC = () => {
   return (
