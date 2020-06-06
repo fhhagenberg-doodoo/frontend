@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { DooDooConfirmModal, DooDooModal } from "../components/DooDooModal";
-import { Task } from "../model";
+import React, { useState } from 'react';
+import { DooDooConfirmModal, DooDooModal } from '../components/DooDooModal';
+import { Task } from '../model';
 
 type UseModalProps = {
   task: Task;

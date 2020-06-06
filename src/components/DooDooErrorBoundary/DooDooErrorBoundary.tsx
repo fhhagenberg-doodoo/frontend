@@ -1,6 +1,4 @@
-import React from "react";
-
-type DooDooErrorBoundaryProps = {};
+import React from 'react';
 
 type DooDooErrorBoundaryState = {
   hasError: boolean;
@@ -9,10 +7,10 @@ type DooDooErrorBoundaryState = {
 };
 
 export class DooDooErrorBoundary extends React.Component<
-  DooDooErrorBoundaryProps,
+  unknown,
   DooDooErrorBoundaryState
 > {
-  constructor(props: DooDooErrorBoundaryProps) {
+  constructor(props: unknown) {
     super(props);
     this.state = { hasError: false };
   }

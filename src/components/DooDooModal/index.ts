@@ -1,2 +1,2 @@
-export * from "./DooDooConfirmModal";
-export * from "./DooDooModal";
+export * from './DooDooConfirmModal';
+export * from './DooDooModal';

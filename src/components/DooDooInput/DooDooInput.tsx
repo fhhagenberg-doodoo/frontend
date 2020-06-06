@@ -1,14 +1,14 @@
-import dayjs from "dayjs";
-import React, { useState } from "react";
-import { FaPlus } from "react-icons/fa";
-import { useRecoilState } from "recoil";
-import { useDooDooApi, useModal } from "../../hooks";
-import { Task } from "../../model";
-import { tasksState } from "../../recoil/atoms";
+import dayjs from 'dayjs';
+import React, { useState } from 'react';
+import { FaPlus } from 'react-icons/fa';
+import { useRecoilState } from 'recoil';
+import { useDooDooApi, useModal } from '../../hooks';
+import { Task } from '../../model';
+import { tasksState } from '../../recoil/atoms';
 
 const initialTask: Task = {
-  name: "",
-  description: "",
+  name: '',
+  description: '',
   dueDate: dayjs().toDate(),
   priority: 3,
 };
@@ -28,7 +28,7 @@ export const DooDooInput: React.FC = () => {
 
   const [AddModal, openAddModal] = useModal({
     task: task,
-    submitButtonText: "Add Task",
+    submitButtonText: 'Add Task',
     onSubmit: createTask,
   });
 

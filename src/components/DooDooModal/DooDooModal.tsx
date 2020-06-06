@@ -1,10 +1,10 @@
-import dayjs from "dayjs";
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import Rating from "react-rating";
-import "../../assets/styles/flex-gap.css";
-import { Task } from "../../model";
+import dayjs from 'dayjs';
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import Rating from 'react-rating';
+import '../../assets/styles/flex-gap.css';
+import { Task } from '../../model';
 
 interface DooDooModalProps {
   task: Task;
@@ -100,11 +100,11 @@ export const DooDooModal: React.FC<DooDooModalProps> = ({
             <Form.Label>Due Date</Form.Label>
             <Form.Control
               type="date"
-              value={dayjs(task.dueDate).format("YYYY-MM-DD")}
+              value={dayjs(task.dueDate).format('YYYY-MM-DD')}
               onChange={(e) =>
                 setTask({ ...task, dueDate: new Date(e.target.value) })
               }
-              min={minDate.format("YYYY-MM-DD")}
+              min={minDate.format('YYYY-MM-DD')}
               required
             />
           </Form.Group>

@@ -1,1 +1,1 @@
-export * from "./DooDooErrorBoundary";
+export * from './DooDooErrorBoundary';

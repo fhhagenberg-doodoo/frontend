@@ -1,13 +1,13 @@
-import React from "react";
-import { useRecoilState } from "recoil";
-import { useConfirmModal, useModal } from "../../hooks";
-import { deleteTask, putTask } from "../../hooks/api-hooks";
-import { Task } from "../../model";
-import { tasksState } from "../../recoil/atoms";
-import { removeItemAtIndex, replaceItemAtIndex } from "../../util/arrayUtils";
-import { DooDooTaskDescription } from "./DooDooTaskDescription";
-import { DooDooTaskOptions } from "./DooDooTaskOptions";
-import { DooDooTaskPriority } from "./DooDooTaskPriority";
+import React from 'react';
+import { useRecoilState } from 'recoil';
+import { useConfirmModal, useModal } from '../../hooks';
+import { deleteTask, putTask } from '../../hooks/api-hooks';
+import { Task } from '../../model';
+import { tasksState } from '../../recoil/atoms';
+import { removeItemAtIndex, replaceItemAtIndex } from '../../util/arrayUtils';
+import { DooDooTaskDescription } from './DooDooTaskDescription';
+import { DooDooTaskOptions } from './DooDooTaskOptions';
+import { DooDooTaskPriority } from './DooDooTaskPriority';
 
 interface DooDooTaskProps {
   task: Task;
@@ -36,13 +36,13 @@ export const DooDooTask: React.FC<DooDooTaskProps> = ({ task: taskInput }) => {
 
   const [EditModal, openEditModal] = useModal({
     task: taskInput,
-    submitButtonText: "Edit Task",
+    submitButtonText: 'Edit Task',
     onSubmit: editTask,
   });
 
   const [DeleteModal, openDeleteModal] = useConfirmModal({
     task: taskInput,
-    submitButtonText: "Delete Task",
+    submitButtonText: 'Delete Task',
     onSubmit: removeTask,
   });
 

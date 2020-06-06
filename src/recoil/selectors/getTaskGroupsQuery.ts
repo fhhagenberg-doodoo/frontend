@@ -1,9 +1,9 @@
-import { selector } from "recoil";
-import { Task, TaskGroup } from "../../model";
-import { groupBy } from "../../util/groupBy";
-import { tasksState } from "../atoms";
+import { selector } from 'recoil';
+import { Task, TaskGroup } from '../../model';
+import { groupBy } from '../../util/groupBy';
+import { tasksState } from '../atoms';
 
-const GET_TASK_GROUPS = "GetTaskGroups";
+const GET_TASK_GROUPS = 'GetTaskGroups';
 
 const groupTasksByDate = (tasks: Array<Task>): Array<TaskGroup> => {
   const tasksByDate = groupBy(tasks, (t) => t.dueDate.toDateString());

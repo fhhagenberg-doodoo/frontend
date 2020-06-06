@@ -1,1 +1,1 @@
-export * from "./getTaskGroupsQuery";
+export * from './getTaskGroupsQuery';
