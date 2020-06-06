@@ -1,4 +1,4 @@
-[![DeepScan grade](https://deepscan.io/api/teams/9591/projects/12127/branches/184247/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=9591&pid=12127&bid=184247) [![Coverage Status](https://coveralls.io/repos/github/fhhagenberg-doodoo/frontend/badge.svg?branch=master)](https://coveralls.io/github/fhhagenberg-doodoo/frontend?branch=master)
+[![Build Status](https://travis-ci.org/fhhagenberg-doodoo/frontend.svg?branch=master)](https://travis-ci.org/fhhagenberg-doodoo/frontend) [![DeepScan grade](https://deepscan.io/api/teams/9591/projects/12127/branches/184247/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=9591&pid=12127&bid=184247) [![Coverage Status](https://coveralls.io/repos/github/fhhagenberg-doodoo/frontend/badge.svg?branch=master)](https://coveralls.io/github/fhhagenberg-doodoo/frontend?branch=master)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
