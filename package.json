@@ -18,11 +18,13 @@
     "jest": {
         "collectCoverageFrom": [
             "src/**/*.{js,jsx,ts,tsx}",
+            "!src/index.tsx",
             "!src/**/index.ts",
             "!**/recoil/**",
             "!**/model/**",
             "!**/dtos/**",
-            "!**/node_modules/**"
+            "!**/node_modules/**",
+            "!**/test-utils.tsx"
         ]
     },
     "scripts": {

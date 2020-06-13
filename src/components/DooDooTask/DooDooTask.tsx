@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import { useConfirmModal, useDooDooApi, useModal } from '../../hooks';
+import { deleteTask, updateTask } from '../../api';
+import { useConfirmModal, useModal } from '../../hooks';
 import { Task } from '../../model';
 import { tasksState } from '../../recoil/atoms';
 import { removeItemAtIndex, replaceItemAtIndex } from '../../utils/arrayUtils';
@@ -14,10 +15,9 @@ interface DooDooTaskProps {
 
 export const DooDooTask: React.FC<DooDooTaskProps> = ({ task: taskInput }) => {
     const [tasks, setTasks] = useRecoilState(tasksState);
-    const { putTask, deleteTask } = useDooDooApi();
 
     const editTask = async (task: Task) => {
-        await putTask(taskInput);
+        await updateTask(taskInput);
 
         const indexOfTask = tasks.findIndex((t) => t.id === task.id);
         const updatedTasks = replaceItemAtIndex(tasks, indexOfTask, task);

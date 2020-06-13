@@ -1,6 +1,6 @@
 import React from 'react';
-import { DooDooLoadingIndicator } from '../../../components/DooDooLoadingIndicator/DooDooLoadingIndicator';
-import { render } from '../../../utils/test-utils';
+import { DooDooLoadingIndicator } from '../../../components/DooDooLoadingIndicator';
+import { render } from '../../../utils';
 
 test('loading indicator renders correctly', () => {
     const { getByRole } = render(<DooDooLoadingIndicator />);

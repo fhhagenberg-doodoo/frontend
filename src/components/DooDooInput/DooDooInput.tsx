@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useRecoilState } from 'recoil';
-import { useDooDooApi, useModal } from '../../hooks';
-import { Task } from '../../model';
 import { tasksState } from '../../recoil/atoms';
+import { Task } from '../../model';
+import { createTask } from '../../api';
+import { useModal } from '../../hooks';
 
 export const DooDooInput: React.FC = () => {
     const [nameInput, setNameInput] = useState('');
     const [tasks, setTasks] = useRecoilState(tasksState);
 
-    const { postTask } = useDooDooApi();
-
-    const createTask = async (task: Task) => {
-        const createdTask = await postTask(task);
-
+    const handleSubmit = async (task: Task) => {
+        const createdTask = await createTask(task);
         setTasks([...tasks, createdTask]);
     };
 
     const [AddModal, openAddModal] = useModal({
         nameInput: nameInput,
         submitButtonText: 'Add Task',
-        onSubmit: createTask,
+        onSubmit: handleSubmit,
     });
 
     return (
@@ -30,11 +28,13 @@ export const DooDooInput: React.FC = () => {
                 type="text"
                 value={nameInput}
                 onChange={(e) => setNameInput(e.target.value)}
+                data-testid="task-name-input-field"
             />
             <button
                 className="px-4 py-1 h-full align-text-bottom outline-none focus:outline-none focus:border-none"
                 type="submit"
-                onClick={openAddModal}>
+                onClick={openAddModal}
+                data-testid="open-add-modal-button">
                 <FaPlus className="outline-none border-none"></FaPlus>
             </button>
             <AddModal></AddModal>

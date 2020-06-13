@@ -31,11 +31,18 @@ export const useModal = ({
     return [Modal, openModal];
 };
 
+type UseConfirmModalProps = {
+    task: Task;
+    nameInput?: string;
+    submitButtonText: string;
+    onSubmit: ((task: Task) => Promise<void>) | ((task: Task) => void);
+};
+
 export const useConfirmModal = ({
     task,
     submitButtonText,
     onSubmit,
-}: UseModalProps): [React.FC, () => void] => {
+}: UseConfirmModalProps): [React.FC, () => void] => {
     const [isModalOpen, setModalOpen] = useState(false);
 
     const openModal = () => setModalOpen(true);

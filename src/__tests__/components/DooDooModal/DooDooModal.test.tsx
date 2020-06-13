@@ -1,33 +1,31 @@
-import { advanceTo } from 'jest-date-mock';
 import React from 'react';
-import { DooDooModal } from '../../../components/DooDooModal';
 import { Task } from '../../../model';
-import { fireEvent, getAllByText, render, screen } from '../../../utils/test-utils';
+import { DooDooModal } from '../../../components/DooDooModal';
+import { render, getAllByText, fireEvent, screen } from '../../../utils';
+import { advanceTo } from 'jest-date-mock';
 
 advanceTo(new Date(2020, 0, 1, 0, 0, 0));
 
-const mockTask: Task = {
+const dummyTask: Task = {
     id: 'Id of task',
     name: 'Name of task',
     description: 'Description of task',
-    dueDate: new Date(Date.now()),
+    dueDate: new Date(2020, 0, 1, 0, 0, 0),
     priority: 3,
 };
-
-const submitButtonText = 'Submit Modal';
 
 test('DooDooModal renders correctly without task', () => {
     const { getByRole, getByText, getByLabelText } = render(
         <DooDooModal
             isModalOpen={true}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={jest.fn()}
             onSubmit={jest.fn()}
         />
     );
 
     expect(getByRole('dialog')).toBeVisible();
-    expect(getByText(submitButtonText, { selector: 'div' })).toBeVisible();
+    expect(getByText('Submit Modal', { selector: 'div' })).toBeVisible();
     expect(getByLabelText('Name')).toHaveValue('');
     expect(getByLabelText('Description')).toHaveValue('');
     expect(getByLabelText('Due Date')).toHaveValue('2020-01-01');
@@ -42,24 +40,24 @@ test('DooDooModal renders correctly without task', () => {
     expect(toiletSymbols[4].style.opacity).toBe('0.5');
 
     expect(getByText('Cancel')).toBeVisible();
-    expect(getByText(submitButtonText, { selector: 'button' })).toBeVisible();
+    expect(getByText('Submit Modal', { selector: 'button' })).toBeVisible();
 });
 
 test('DooDooModal renders correctly with existing task', () => {
     const { getByRole, getByText, getByLabelText } = render(
         <DooDooModal
-            task={mockTask}
+            task={dummyTask}
             isModalOpen={true}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={jest.fn()}
             onSubmit={jest.fn()}
         />
     );
 
     expect(getByRole('dialog')).toBeVisible();
-    expect(getByText(submitButtonText, { selector: 'div' })).toBeVisible();
-    expect(getByLabelText('Name')).toHaveValue(mockTask.name);
-    expect(getByLabelText('Description')).toHaveValue(mockTask.description);
+    expect(getByText('Submit Modal', { selector: 'div' })).toBeVisible();
+    expect(getByLabelText('Name')).toHaveValue(dummyTask.name);
+    expect(getByLabelText('Description')).toHaveValue(dummyTask.description);
     expect(getByLabelText('Due Date')).toHaveValue('2020-01-01');
 
     const toiletSymbols = getAllByText(getByLabelText('Priority'), '🚽');
@@ -72,17 +70,17 @@ test('DooDooModal renders correctly with existing task', () => {
     expect(toiletSymbols[4].style.opacity).toBe('0.5');
 
     expect(getByText('Cancel')).toBeVisible();
-    expect(getByText(submitButtonText, { selector: 'button' })).toBeVisible();
+    expect(getByText('Submit Modal', { selector: 'button' })).toBeVisible();
 });
 
 test('DooDooModal task name is immutable', () => {
-    const currentTask: Task = { ...mockTask };
+    const currentTask: Task = { ...dummyTask };
 
     const { getByLabelText } = render(
         <DooDooModal
             task={currentTask}
             isModalOpen={true}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={jest.fn()}
             onSubmit={jest.fn()}
         />
@@ -94,17 +92,17 @@ test('DooDooModal task name is immutable', () => {
 
     fireEvent.change(nameFormControl, { target: { value: 'test' } });
     expect(nameFormControl).toHaveValue('test');
-    expect(currentTask.name).toBe(mockTask.name);
+    expect(currentTask.name).toBe(dummyTask.name);
 });
 
 test('DooDooModal task description is immutable', () => {
-    const currentTask: Task = { ...mockTask };
+    const currentTask: Task = { ...dummyTask };
 
     const { getByLabelText } = render(
         <DooDooModal
             task={currentTask}
             isModalOpen={true}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={jest.fn()}
             onSubmit={jest.fn()}
         />
@@ -116,17 +114,17 @@ test('DooDooModal task description is immutable', () => {
 
     fireEvent.change(descriptionFormControl, { target: { value: 'test' } });
     expect(descriptionFormControl).toHaveValue('test');
-    expect(currentTask.description).toBe(mockTask.description);
+    expect(currentTask.description).toBe(dummyTask.description);
 });
 
 test('DooDooModal task due date is immutable', () => {
-    const currentTask: Task = { ...mockTask };
+    const currentTask: Task = { ...dummyTask };
 
     const { getByLabelText } = render(
         <DooDooModal
             task={currentTask}
             isModalOpen={true}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={jest.fn()}
             onSubmit={jest.fn()}
         />
@@ -137,17 +135,17 @@ test('DooDooModal task due date is immutable', () => {
     expect(dueDateFormControl).toHaveValue('2020-01-01');
     fireEvent.change(dueDateFormControl, { target: { value: '2020-01-08' } });
     expect(dueDateFormControl).toHaveValue('2020-01-08');
-    expect(currentTask.dueDate).toBe(mockTask.dueDate);
+    expect(currentTask.dueDate).toBe(dummyTask.dueDate);
 });
 
 test('DooDooModal task priority is immutable', () => {
-    const currentTask: Task = { ...mockTask };
+    const currentTask: Task = { ...dummyTask };
 
     const { getByLabelText } = render(
         <DooDooModal
             task={currentTask}
             isModalOpen={true}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={jest.fn()}
             onSubmit={jest.fn()}
         />
@@ -162,30 +160,28 @@ test('DooDooModal task priority is immutable', () => {
     expect(toiletSymbols[3].style.opacity).toBe('0.5');
     expect(toiletSymbols[4].style.opacity).toBe('0.5');
 
-    expect(currentTask.priority).toBe(mockTask.priority);
+    expect(currentTask.priority).toBe(dummyTask.priority);
 });
 
 test('DooDooConfirmModal is not visible', () => {
     render(
         <DooDooModal
-            task={mockTask}
+            task={dummyTask}
             isModalOpen={false}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={jest.fn()}
             onSubmit={jest.fn()}
         />
     );
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    expect(screen.queryByText(submitButtonText, { selector: 'div' })).not.toBeInTheDocument();
+    expect(screen.queryByText('Submit Modal', { selector: 'div' })).not.toBeInTheDocument();
     expect(screen.queryByLabelText('Name')).not.toBeInTheDocument();
     expect(screen.queryByLabelText('Description')).not.toBeInTheDocument();
     expect(screen.queryByLabelText('Due Date')).not.toBeInTheDocument();
     expect(screen.queryByLabelText('Priority')).not.toBeInTheDocument();
     expect(screen.queryByLabelText('Cancel')).not.toBeInTheDocument();
-    expect(
-        screen.queryByLabelText(submitButtonText, { selector: 'button' })
-    ).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Submit Modal', { selector: 'button' })).not.toBeInTheDocument();
 });
 
 test('DooDooModal calls closeModal correctly', () => {
@@ -193,9 +189,9 @@ test('DooDooModal calls closeModal correctly', () => {
 
     const { getByText } = render(
         <DooDooModal
-            task={mockTask}
+            task={dummyTask}
             isModalOpen={true}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={closeModalHandler}
             onSubmit={jest.fn()}
         />
@@ -211,15 +207,15 @@ test('DooDooModal calls onSubmit correctly', () => {
 
     const { getByText } = render(
         <DooDooModal
-            task={mockTask}
+            task={dummyTask}
             isModalOpen={true}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={jest.fn()}
             onSubmit={onSubmitHandler}
         />
     );
 
-    fireEvent.click(getByText(submitButtonText, { selector: 'button' }));
+    fireEvent.click(getByText('Submit Modal', { selector: 'button' }));
 
     expect(onSubmitHandler).toBeCalled();
 });
@@ -230,13 +226,13 @@ test('DooDooModal does not call onSubmit on empty name', () => {
     const { getByText } = render(
         <DooDooModal
             isModalOpen={true}
-            submitButtonText={submitButtonText}
+            submitButtonText={'Submit Modal'}
             closeModal={jest.fn()}
             onSubmit={onSubmitHandler}
         />
     );
 
-    fireEvent.click(getByText(submitButtonText, { selector: 'button' }));
+    fireEvent.click(getByText('Submit Modal', { selector: 'button' }));
 
     expect(onSubmitHandler).not.toBeCalled();
 });

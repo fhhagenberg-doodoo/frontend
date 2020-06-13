@@ -23,3 +23,5 @@ export const buildTask = (dto: TaskDto): Task =>
         dueDate: dayjs(dto.dueDate, { format: 'YYYY-MM-DDTHH:mm:ss.SSSZ' }).toDate(),
         priority: dto.priority,
     } as Task);
+
+export const buildTasks = (dtos: TaskDto[]): Task[] => dtos.map((dto) => buildTask(dto));

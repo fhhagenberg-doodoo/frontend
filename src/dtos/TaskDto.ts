@@ -3,6 +3,6 @@ export interface TaskDto {
     name: string;
     description: string;
     dueDate: string;
-    doneSince: string;
+    doneSince?: string;
     priority: number;
 }

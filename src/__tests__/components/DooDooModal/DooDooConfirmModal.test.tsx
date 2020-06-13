@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 import React from 'react';
-import { DooDooConfirmModal } from '../../../components/DooDooModal';
 import { Task } from '../../../model';
-import { fireEvent, render, screen, waitFor } from '../../../utils/test-utils';
+import { DooDooConfirmModal } from '../../../components/DooDooModal';
+import { render, screen, fireEvent, waitFor } from '../../../utils';
 
-const mockTask: Task = {
+const dummyTask: Task = {
     id: 'Id of task',
     name: 'Name of task',
     description: 'Description of task',
@@ -18,7 +18,7 @@ const submitButtonText = 'Submit Modal';
 test('DooDooConfirmModal renders correctly', () => {
     const { getByRole, getByText } = render(
         <DooDooConfirmModal
-            task={mockTask}
+            task={dummyTask}
             isModalOpen={true}
             submitButtonText={submitButtonText}
             closeModal={jest.fn()}
@@ -36,7 +36,7 @@ test('DooDooConfirmModal renders correctly', () => {
 test('DooDooConfirmModal is not visible', () => {
     render(
         <DooDooConfirmModal
-            task={mockTask}
+            task={dummyTask}
             isModalOpen={false}
             submitButtonText={submitButtonText}
             closeModal={jest.fn()}
@@ -58,7 +58,7 @@ test('DooDooConfirmModal calls closeMOdal on cancel', () => {
 
     const { getByText } = render(
         <DooDooConfirmModal
-            task={mockTask}
+            task={dummyTask}
             isModalOpen={true}
             submitButtonText={submitButtonText}
             closeModal={closeModalHandler}
@@ -77,7 +77,7 @@ test('DooDooConfirmModal calls onSubmit on cancel', async () => {
 
     const { getByText } = render(
         <DooDooConfirmModal
-            task={mockTask}
+            task={dummyTask}
             isModalOpen={true}
             submitButtonText={submitButtonText}
             closeModal={closeModalHandler}
