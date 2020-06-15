@@ -27,6 +27,11 @@
             "!**/test-utils.tsx"
         ]
     },
+    "majestic": {
+        "args": [
+            "--env=jest-environment-jsdom-sixteen"
+        ]
+    },
     "scripts": {
         "watch:style": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css && react-scripts start",
         "start": "npm run watch:style && react-scripts start",
