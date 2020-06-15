@@ -1,11 +1,10 @@
 import { advanceTo } from 'jest-date-mock';
-import { Task } from '../../model';
-import { waitFor, render } from '../../utils';
 import React from 'react';
 import { mocked } from 'ts-jest/utils';
 import { DooDooBody } from '../../components/DooDooBody';
-import { DooDooTaskGroupList } from '../../components/DooDooTaskGroupList';
 import { DooDooInput } from '../../components/DooDooInput';
+import { DooDooTaskGroupList } from '../../components/DooDooTaskGroupList';
+import { render, waitFor } from '../../utils';
 
 advanceTo(new Date(2020, 0, 1, 13, 0, 0));
 
