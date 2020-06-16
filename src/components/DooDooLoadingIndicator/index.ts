@@ -1,1 +1,1 @@
-export * from "./DooDooLoadingIndicator";
+export * from './DooDooLoadingIndicator';
