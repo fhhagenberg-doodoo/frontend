@@ -76,7 +76,7 @@
         "@storybook/addon-actions": "^5.3.19",
         "@storybook/addon-links": "^5.3.19",
         "@storybook/addons": "^5.3.19",
-        "@storybook/preset-create-react-app": "^3.0.1",
+        "@storybook/preset-create-react-app": "^3.1.1",
         "@storybook/react": "^5.3.19",
         "@testing-library/jest-dom": "^5.10.1",
         "@testing-library/react": "^10.2.1",
