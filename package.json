@@ -104,7 +104,7 @@
         "husky": "4.2.5",
         "jest-date-mock": "^1.0.8",
         "jest-environment-jsdom-sixteen": "^1.0.3",
-        "lint-staged": "10.2.10",
+        "lint-staged": "10.2.11",
         "postcss-cli": "^7.1.1",
         "prettier": "^2.0.5",
         "react-test-renderer": "^16.13.1",
