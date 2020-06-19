@@ -1,25 +1,24 @@
 language: node_js
 node_js: 12
 install:
-  - npm ci
+    - npm ci
 cache:
-  directories:
-    - '$HOME/.npm'
+    directories:
+        - '$HOME/.npm'
 
 jobs:
-  include:
-    - stage: 'Testing Project'
-      name: 'Unit Tests'
-      script:
-        - npm run lint:fix
-        - npm run test
-        - npm run coveralls
+    include:
+        - stage: 'Testing Project'
+          name: 'Unit Tests'
+          script:
+              - npm run lint:fix
+              - npm run coveralls
 
-    - stage: 'Deploy to Heroku'
-      deploy:
-        provider: heroku
-        app:
-          master: doodoo-frontend
-          dev: doodoo-frontend-dev
-        api_key:
-          secure: n75D6vgk2m5DOOcfi/QdAXO9hlDBUx9vX+IEmV0dFGQJmFLvrfs8IgxGkKY4vB3zQRw5/Qh4f90aNktA1pcoqsWkMNgPKZBRyoUUSGbCqY3hUXOBrGuAFpoe/4wugtC8+NNuQguMMYcz/T/6vP/Alx6lmjuK4p/4CUitxhRtar2WOHaw8OSOo4mphKxtZfFiyWe1pzqHe31rReaqHW7jG8DqG+FqQSai5X0RFRekG/KxExH9WVlI/ywhwUPfDeLCdgOZoyoEV7s/+ATTEajbjKmE1k0rQptU2hrdxbaOq5WIq23nn5DwTaDLof8q+IX0psctZwp3aNFUqp/Pl3sz4uw+kFsQQijPzVv2DWc0CW2jAts9C7zQpS92NbzfA7EFdtHtiUAMVXK/DCVIRMTYni++6eoEv25VohowAOgqdz1GKUVSncpkHTWjKzYPK0uaD6rGBEF4oQ+4hxNkLuX/pvmM9ydMaHV3r/Z+tg1LkDEpMrGIiIiBOh5p3AAJ8DqIgmjbUASua31bFZYfcFxlUIAkq4652aFQZt4k0uoMP+qNo7zmsEPj4JlSsqcMBfDVShnqXlJAd8jPfa05Y63s1YSmz+0N9ssHE+nwmmTCS6P39iK2rxwj9qkCVOhhtwWqPKrGG5jvjnY6F6IBxh0H0C6YF9IQg8qn4PoynY8b1qg=
+        - stage: 'Deploy to Heroku'
+          deploy:
+              provider: heroku
+              app:
+                  master: doodoo-frontend
+                  dev: doodoo-frontend-dev
+              api_key:
+                  secure: n75D6vgk2m5DOOcfi/QdAXO9hlDBUx9vX+IEmV0dFGQJmFLvrfs8IgxGkKY4vB3zQRw5/Qh4f90aNktA1pcoqsWkMNgPKZBRyoUUSGbCqY3hUXOBrGuAFpoe/4wugtC8+NNuQguMMYcz/T/6vP/Alx6lmjuK4p/4CUitxhRtar2WOHaw8OSOo4mphKxtZfFiyWe1pzqHe31rReaqHW7jG8DqG+FqQSai5X0RFRekG/KxExH9WVlI/ywhwUPfDeLCdgOZoyoEV7s/+ATTEajbjKmE1k0rQptU2hrdxbaOq5WIq23nn5DwTaDLof8q+IX0psctZwp3aNFUqp/Pl3sz4uw+kFsQQijPzVv2DWc0CW2jAts9C7zQpS92NbzfA7EFdtHtiUAMVXK/DCVIRMTYni++6eoEv25VohowAOgqdz1GKUVSncpkHTWjKzYPK0uaD6rGBEF4oQ+4hxNkLuX/pvmM9ydMaHV3r/Z+tg1LkDEpMrGIiIiBOh5p3AAJ8DqIgmjbUASua31bFZYfcFxlUIAkq4652aFQZt4k0uoMP+qNo7zmsEPj4JlSsqcMBfDVShnqXlJAd8jPfa05Y63s1YSmz+0N9ssHE+nwmmTCS6P39iK2rxwj9qkCVOhhtwWqPKrGG5jvjnY6F6IBxh0H0C6YF9IQg8qn4PoynY8b1qg=
