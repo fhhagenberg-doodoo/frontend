@@ -17,7 +17,7 @@ export const DooDooTask: React.FC<DooDooTaskProps> = ({ task: taskInput }) => {
     const [tasks, setTasks] = useRecoilState(tasksState);
 
     const editTask = async (task: Task) => {
-        const updatedTask = await updateTask(taskInput);
+        const updatedTask = await updateTask(task);
 
         const indexOfTask = tasks.findIndex((t) => t.id === task.id);
         const updatedTasks = replaceItemAtIndex(tasks, indexOfTask, updatedTask);
