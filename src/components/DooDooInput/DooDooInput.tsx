@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useRecoilState } from 'recoil';
-import { tasksState } from '../../recoil/atoms';
-import { Task } from '../../model';
 import { createTask } from '../../api';
 import { useModal } from '../../hooks';
+import { Task } from '../../model';
+import { tasksState } from '../../recoil/atoms';
 
 export const DooDooInput: React.FC = () => {
     const [nameInput, setNameInput] = useState('');
@@ -13,10 +13,16 @@ export const DooDooInput: React.FC = () => {
     const handleSubmit = async (task: Task) => {
         const createdTask = await createTask(task);
         setTasks([...tasks, createdTask]);
+        setNameInput('');
     };
 
     const [AddModal, openAddModal] = useModal({
-        nameInput: nameInput,
+        task: {
+            name: nameInput,
+            description: '',
+            dueDate: new Date(),
+            priority: 3,
+        },
         submitButtonText: 'Add Task',
         onSubmit: handleSubmit,
     });

@@ -7,7 +7,7 @@ type DooDooTaskOptionsProps = {
 
 export const DooDooTaskOptions: React.FC<DooDooTaskOptionsProps> = ({ onEdit, onDelete }) => {
     return (
-        <div>
+        <>
             <button onClick={() => onEdit()}>
                 <span role="img" aria-label="Pen EmojI">
                     🖊️
@@ -18,6 +18,6 @@ export const DooDooTaskOptions: React.FC<DooDooTaskOptionsProps> = ({ onEdit, on
                     🗑️
                 </span>
             </button>
-        </div>
+        </>
     );
 };

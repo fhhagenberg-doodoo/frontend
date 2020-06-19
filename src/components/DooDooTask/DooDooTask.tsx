@@ -68,17 +68,19 @@ export const DooDooTask: React.FC<DooDooTaskProps> = ({ task: taskInput }) => {
             className={`flex px-4 py-2 justify-end bg-white text-brown text-md lg:text-lg rounded-lg ${
                 canTaskBeDone(taskInput) ? 'opacity-100' : 'opacity-50'
             }`}
-            onClick={() => onTaskClick()}
+            onClick={onTaskClick}
             data-testid="doodoo-task">
             <DooDooTaskDescription
                 name={taskInput.name}
                 description={taskInput.description}></DooDooTaskDescription>
             <DooDooTaskPriority priority={taskInput.priority}></DooDooTaskPriority>
-            <DooDooTaskOptions
-                onEdit={openEditModal}
-                onDelete={openDeleteModal}></DooDooTaskOptions>
-            <EditModal />
-            <DeleteModal />
+            <div className="flex items-center" onClick={(event) => event.stopPropagation()}>
+                <DooDooTaskOptions
+                    onEdit={openEditModal}
+                    onDelete={openDeleteModal}></DooDooTaskOptions>
+                <EditModal />
+                <DeleteModal />
+            </div>
         </div>
     );
 };
