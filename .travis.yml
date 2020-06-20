@@ -8,10 +8,14 @@ cache:
 
 jobs:
     include:
+        - stage: 'Linting Project'
+          name: 'ESLint'
+          script:
+              - npm run lint
+
         - stage: 'Testing Project'
           name: 'Unit Tests'
           script:
-              - npm run lint:fix
               - npm run coveralls
 
         - stage: 'Deploy to Heroku'
