@@ -1,17 +1,17 @@
 language: node_js
 node_js: 12
-install:
-    - npm ci
-cache:
-    directories:
-        - '$HOME/.npm'
 
 jobs:
+    fast_finish: true
     include:
-        - stage: 'Testing Project'
-          name: 'Unit Tests'
+        - stage: 'Linting & Testing'
+          name: 'ESLint'
           script:
-              - npm run lint:fix
+              - npm run lint
+
+        - stage: 'Linting & Testing'
+          name: 'Unit Tests and Code Coverage'
+          script:
               - npm run coveralls
 
         - stage: 'Deploy to Heroku'
