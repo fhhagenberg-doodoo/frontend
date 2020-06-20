@@ -4,16 +4,13 @@ node_js: 12
 jobs:
     fast_finish: true
     include:
-        - stage: 'Prepare Cache'
-          script: true
-
-        - stage: 'Linting Project'
+        - stage: 'Linting & Testing'
           name: 'ESLint'
           script:
               - npm run lint
 
-        - stage: 'Testing Project'
-          name: 'Unit Tests'
+        - stage: 'Linting & Testing'
+          name: 'Unit Tests and Code Coverage'
           script:
               - npm run coveralls
 
