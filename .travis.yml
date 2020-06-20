@@ -8,6 +8,9 @@ cache:
 
 jobs:
     include:
+        - stage: 'Prepare Cache'
+          script: true
+
         - stage: 'Linting Project'
           name: 'ESLint'
           script:
